@@ -1,5 +1,7 @@
 # Generate poems in the style of Shakespeare
 Character-level language model to generate poems in shakespeare's style
+## Files Descriptions
+
 ## Example
 *love to deep  
 can make me tongue-tied speaking of your fame.  
