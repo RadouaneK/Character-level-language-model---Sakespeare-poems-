@@ -8,7 +8,7 @@ from keras.utils.data_utils import get_file
 from keras.preprocessing.sequence import pad_sequences
 import numpy as np
 import random
-import sys
+
 import io
 
 def build_data(text, Tx = 10, stride = 1):
@@ -54,15 +54,15 @@ def sample(preds, temperature=1.0):
 
 def main(data):
 
+	print("Loading text data...")
+	text = io.open(data, encoding='utf-8').read().lower()
+	print('corpus length:', len(text))
+
 	Tx = 40
 	chars = sorted(list(set(text)))
 	char_indices = dict((c, i) for i, c in enumerate(chars))
 	indices_char = dict((i, c) for i, c in enumerate(chars))
 	print('number of unique characters in the corpus:', len(chars))
-
-	print("Loading text data...")
-	text = io.open(data, encoding='utf-8').read().lower()
-	print('corpus length:', len(text))
 
 	print("Creating training set...")
 	X, Y = build_data(text, Tx, stride = 3)
